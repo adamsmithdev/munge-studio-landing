@@ -1,26 +1,104 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0d1117 100%);
+  --foreground: #ffffff;
+  --accent: #00ff99;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(0, 255, 153, 0.4);
+  animation: glow-pulse 3s ease-in-out infinite alternate,
+    float 6s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0% {
+    text-shadow: 0 0 20px rgba(0, 255, 153, 0.3),
+      0 0 40px rgba(0, 255, 153, 0.2), 0 0 60px rgba(0, 255, 153, 0.1);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(0, 255, 153, 0.6),
+      0 0 60px rgba(0, 255, 153, 0.4), 0 0 90px rgba(0, 255, 153, 0.2);
+    filter: hue-rotate(15deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Individual letter animations */
+.text-glow span {
+  display: inline-block;
+  animation: letter-wave 4s ease-in-out infinite;
+}
+
+.text-glow span:nth-child(1) {
+  animation-delay: 0s;
+}
+.text-glow span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.text-glow span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.text-glow span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.text-glow span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.text-glow span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.text-glow span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.text-glow span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.text-glow span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.text-glow span:nth-child(10) {
+  animation-delay: 0.9s;
+}
+.text-glow span:nth-child(11) {
+  animation-delay: 1s;
+}
+.text-glow span:nth-child(12) {
+  animation-delay: 1.1s;
+}
+
+@keyframes letter-wave {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  75% {
+    transform: translateY(2px) scale(0.98);
+  }
 }
